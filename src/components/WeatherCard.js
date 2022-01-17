@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import "../css/WeatherBoards.css"
-import "../css/weather-icons.min.css"
 import { Button } from "semantic-ui-react"
 
-class WeatherBoards extends Component {
+export default class WeatherBoards extends Component {
   constructor(props) {
     super(props)
 
@@ -21,7 +20,6 @@ class WeatherBoards extends Component {
   }
 
   saveDataToLocalStorage() {
-    // Get data from LocalStorage if there is any and push back with new city
     const existingCities = JSON.parse(localStorage.getItem("cityList")) || []
 
     existingCities.push(this.props.weatherData.city)
@@ -71,7 +69,7 @@ class WeatherBoards extends Component {
           <h1 className="WeatherCard-degrees">{celcius}°</h1>
           <div className="WeatherCard-icon-container">
             <i className={`wi wi-owm-${weather[0].id} WeatherCard-icon`} />
-            <p>{weather[0].main} as of {new Date().toLocaleTimeString()}</p> {/* new */}
+            <p>{weather[0].main} as of {new Date().toLocaleTimeString()}</p>
           </div>
           <h2 className="WeatherCard-city">
             {city}, {country}
@@ -194,5 +192,3 @@ class WeatherBoards extends Component {
     )
   }
 }
-
-export default WeatherBoards

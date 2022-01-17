@@ -1,10 +1,14 @@
 import React, { Component } from "react"
 import "./css/App.css"
-
 import SearchBar from "./components/SearchBar"
 import WeatherCard from "./components/WeatherCard"
 import Favourites from "./components/Favourites"
-import API_KEY from "./config.js"
+import { Routes, Route, Link } from "react-router-dom";
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import About from './components/About'
+import Login from './components/Login'
+import API_KEY from "./api.js"
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +34,7 @@ class App extends Component {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`
     fetch(url)
       .then(handleErrors)
-      .then(resp => resp.json())
+      .then(res => res.json())
       .then(data => {
         const weatherObj = {
           weather: data.weather,
@@ -53,7 +57,6 @@ class App extends Component {
         })
       })
       .catch(error => {
-        // If an error is catch, it's sent to SearchBar as props
         this.setState({ errorMessage: error.message })
       })
 
@@ -66,14 +69,11 @@ class App extends Component {
   }
 
   updateSavedCities(cityArr) {
-    // hasCities is set to true if length is more than 0, otherwise false
     const hasCities = cityArr.length > 0
     this.setState({ savedCities: cityArr, hasSavedCities: hasCities })
   }
 
   componentWillMount() {
-    // See if there's saved cities in localStorage before the App is mounted
-    // Tests didn't like parsing when localStorage.getItem was undefined, so this was my solution for it
     let existingCities = JSON.parse(localStorage.getItem("cityList") || "[]")
 
     if (existingCities.length !== 0) {
@@ -95,6 +95,13 @@ class App extends Component {
     
     return (
       <div className="App">
+      <Navbar 
+      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="About" element={<About />} />
+        <Route path="Login" element={<Login />} />
+      </Routes>
         <SearchBar
           callBackFromParent={this.callWeatherData}
           error={errorMessage}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/SearchBar.css";
 import { Input, Message, Form } from "semantic-ui-react";
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,6 @@ class SearchBar extends Component {
 
   sendValueToParent(event) {
     event.preventDefault();
-    // Check if the input field has been submitted empty or if it contains numbers
     if (this.state.value.trim() === "" || this.state.value.match(/\d+/g) !== null) {
       this.setState({ warning: true });
     } else {
@@ -57,5 +56,3 @@ class SearchBar extends Component {
     );
   }
 }
-
-export default SearchBar;

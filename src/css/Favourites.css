@@ -26,5 +26,5 @@ h3.Favourites-title {
 }
 
 .Favourites-btn {
-  animation: fadeInUp .4s;
+  animation: fadeInUp 1s;
 }

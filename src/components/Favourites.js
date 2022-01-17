@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/Favourites.css";
 import { Button } from "semantic-ui-react";
 
-class Favourites extends Component {
+export default class Favourites extends Component {
   constructor(props) {
     super(props);
 
@@ -27,6 +27,4 @@ class Favourites extends Component {
       </div>
     );
   }
-}
-
-export default Favourites;
+};
