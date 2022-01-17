@@ -3,7 +3,7 @@ import "./css/App.css"
 import SearchBar from "./components/SearchBar"
 import WeatherCard from "./components/WeatherCard"
 import Favourites from "./components/Favourites"
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
