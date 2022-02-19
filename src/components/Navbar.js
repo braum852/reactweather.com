@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import Login from './Login'
 
 const link = {
   width: '100px',
@@ -11,7 +12,21 @@ const link = {
 }
 
 export default class Navbar extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {hide: false};
+  }
+
+  handleChildClick(){
+    this.setState({hide: true});
+  } 
+
   render() {
+    const {hide} = this.state;
+    if (hide) {
+      return null;
+    }
     return (
       <div>
         <NavLink
@@ -40,7 +55,9 @@ export default class Navbar extends React.Component {
           activeStyle={{
             background: 'darkblue'
           }}
-        >Login</NavLink>
+        >Login
+        <Login onClick={this.handleChildClick.bind(this)} />
+        </NavLink>
       </div>
     )
   }

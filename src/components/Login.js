@@ -1,7 +1,10 @@
 import React from 'react';
 
 export default class Login extends React.Component {
+
+
   render() {
+    const {onClick} = this.props;
     return (
       <form>
         <h1>Login lol jks does not work</h1>
@@ -13,8 +16,9 @@ export default class Login extends React.Component {
         <label htmlFor="password">Password</label>
           <input type="password" name="password" placeholder="Password" />
         </div>
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" onClick={onClick}/>
       </form>
+      
     );
   }
 }

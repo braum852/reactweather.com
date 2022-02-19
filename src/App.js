@@ -25,6 +25,7 @@ class App extends Component {
       hasSavedCities: false,
       errorMessage: ""
     }
+   
 
     this.callWeatherData = this.callWeatherData.bind(this)
     this.updateSavedCities = this.updateSavedCities.bind(this)
@@ -93,10 +94,9 @@ class App extends Component {
       errorMessage
     } = this.state
     
-    return (
+    return (      
       <div className="App">
-      <Navbar 
-      />
+        <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="About" element={<About />} />
