@@ -26,6 +26,7 @@ class App extends Component {
       errorMessage: ""
     }
    
+    this.state = {hide: false};
     this.callWeatherData = this.callWeatherData.bind(this)
     this.updateSavedCities = this.updateSavedCities.bind(this)
   }

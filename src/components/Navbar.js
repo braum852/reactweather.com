@@ -12,14 +12,7 @@ const link = {
   color: 'white',
 }
 
-export default class Navbar extends React.Component {
-  constructor() {
-    super();
-    this.state = {hide: false};
-}
-handleChildClick() {
-    this.setState({hide: true});
-}
+export default class Navbar extends React.Component {  
  
   render() {
     return (
