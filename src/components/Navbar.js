@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import Login from './Login'
 
+
 const link = {
   width: '100px',
   padding: '12px',
@@ -12,21 +13,15 @@ const link = {
 }
 
 export default class Navbar extends React.Component {
-
   constructor() {
     super();
     this.state = {hide: false};
-  }
-
-  handleChildClick(){
+}
+handleChildClick() {
     this.setState({hide: true});
-  } 
-
+}
+ 
   render() {
-    const {hide} = this.state;
-    if (hide) {
-      return null;
-    }
     return (
       <div>
         <NavLink
@@ -50,13 +45,13 @@ export default class Navbar extends React.Component {
         >About</NavLink>
         <NavLink
           to="/login"
+          component={Login}
           exact
           style={link}
           activeStyle={{
             background: 'darkblue'
           }}
         >Login
-        <Login onClick={this.handleChildClick.bind(this)} />
         </NavLink>
       </div>
     )

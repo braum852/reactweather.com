@@ -1,8 +1,8 @@
 import React from 'react';
 
+
 export default class Login extends React.Component {
-
-
+  
   render() {
     const {onClick} = this.props;
     return (
@@ -16,7 +16,7 @@ export default class Login extends React.Component {
         <label htmlFor="password">Password</label>
           <input type="password" name="password" placeholder="Password" />
         </div>
-        <input type="submit" value="Login" onClick={onClick}/>
+        <input type="submit" value="Hide" onClick={onClick}/>
       </form>
       
     );

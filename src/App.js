@@ -26,9 +26,12 @@ class App extends Component {
       errorMessage: ""
     }
    
-
     this.callWeatherData = this.callWeatherData.bind(this)
     this.updateSavedCities = this.updateSavedCities.bind(this)
+  }
+
+  handleChildClick(){
+    this.setState({hide: true});
   }
 
   callWeatherData(city) {
@@ -93,6 +96,10 @@ class App extends Component {
       savedCities,
       errorMessage
     } = this.state
+    const {hide} = this.state;
+        if (hide) {
+            return null;
+        }
     
     return (      
       <div className="App">
@@ -100,7 +107,7 @@ class App extends Component {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="About" element={<About />} />
-        <Route path="Login" element={<Login />} />
+        <Route path="Login" element={<Login onClick={this.handleChildClick.bind(this)}/>} />
       </Routes>
         <SearchBar
           callBackFromParent={this.callWeatherData}
